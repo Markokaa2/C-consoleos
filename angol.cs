@@ -7,7 +7,7 @@ using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace IKT
+namespace Vizsgaremek2025
 {
     internal class angol
     {
@@ -85,7 +85,6 @@ namespace IKT
                 Console.WriteLine("3.  Utazás       (Közepes)");
                 Console.WriteLine("4.  Időjárás     (Közepes)");
                 Console.WriteLine("5.  Lakóhely     (Nehéz)");
-                //Console.WriteLine("6.  Vegyes       (Nehéz) (jelentése: Akármelyik témából vegyesen válogat szavakat");
                 Console.WriteLine("7.  Kilépés      ");
                 Console.WriteLine("--------------------");
                 Console.Write(" -- Téma sorszáma: ");

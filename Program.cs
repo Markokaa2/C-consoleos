@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IKT
+namespace Vizsgaremek2025
 {
     internal class Program
     {
@@ -25,7 +25,7 @@ namespace IKT
             {
                 Console.WriteLine("-----------------------------------------");
                 Console.WriteLine("  Választható nyelvek:");
-                Console.WriteLine(" * Angol");
+                Console.WriteLine(" * Angol"); 
                 Console.WriteLine(" * Német");
                 Console.WriteLine(" * Spanyol");
                 Console.WriteLine(" * Olasz");
@@ -75,6 +75,7 @@ namespace IKT
                         Console.WriteLine(" 1. ABC választási lehetőség");
                         Console.WriteLine(" 2. Akasztófa");
                         Console.WriteLine(" 3. Szópárosítás");
+                        Console.WriteLine(" 4. Szó kereső");
                         Console.WriteLine("-----------------------------------------");
                         Console.Write(" Adja meg a választott feladat sorszámát: ");
                         int szamNEMET = Convert.ToInt16(Console.ReadLine());
@@ -105,6 +106,7 @@ namespace IKT
                         Console.WriteLine(" 1. ABC választási lehetőség");
                         Console.WriteLine(" 2. Akasztófa");
                         Console.WriteLine(" 3. Szópárosítás");
+                        Console.WriteLine(" 4. Szó kereső");
                         Console.WriteLine("-----------------------------------------");
                         Console.Write(" Adja meg a választott feladat sorszámát: ");
                         int szamSPANYOL = Convert.ToInt16(Console.ReadLine());
@@ -135,6 +137,7 @@ namespace IKT
                         Console.WriteLine(" 1. ABC választási lehetőség");
                         Console.WriteLine(" 2. Akasztófa");
                         Console.WriteLine(" 3. Szópárosítás");
+                        Console.WriteLine(" 4. Szó kereső");
                         Console.WriteLine("-----------------------------------------");
                         Console.Write(" Adja meg a választott feladat sorszámát: ");
                         int szamOLASZ = Convert.ToInt16(Console.ReadLine());
@@ -165,6 +168,7 @@ namespace IKT
                         Console.WriteLine(" 1. ABC választási lehetőség");
                         Console.WriteLine(" 2. Akasztófa");
                         Console.WriteLine(" 3. Szópárosítás");
+                        Console.WriteLine(" 4. Szó kereső");
                         Console.WriteLine("-----------------------------------------");
                         Console.Write(" Adja meg a választott feladat sorszámát: ");
                         int szamFRANCIA = Convert.ToInt16(Console.ReadLine());

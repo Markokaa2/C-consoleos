@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace IKT
+namespace Vizsgaremek2025
 {
     internal class spanyol
     {
