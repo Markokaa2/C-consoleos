@@ -763,7 +763,7 @@ namespace Vizsgaremek2025
         public void Pontok()
         {
             int pontok = pontszamABC + pontszamAKASZTOFA + pontszamPAROSITAS;
-            Console.WriteLine($"" + username + " összesen {pontok} pontot gyűjtött! Gratulálunk :)");
+            Console.WriteLine($"" + username + " összesen "+pontok+" pontot gyűjtött! Gratulálunk :)");
         }
 
 
