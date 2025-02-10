@@ -2,67 +2,64 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.IO;
-using System.Reflection;
-using System.Text.RegularExpressions;
 
 namespace IKT
 {
-    internal class angol
+    internal class nemet
     {
-        List<string> csalad_angol = new List<string>();
+        List<string> csalad_nemet = new List<string>();
         List<string> csalad_magyar = new List<string>();
-        List<string> info_angol = new List<string>();
+        List<string> info_nemet = new List<string>();
         List<string> info_magyar = new List<string>();
-        List<string> utazas_angol = new List<string>();
+        List<string> utazas_nemet = new List<string>();
         List<string> utazas_magyar = new List<string>();
-        List<string> idojaras_angol = new List<string>();
+        List<string> idojaras_nemet = new List<string>();
         List<string> idojaras_magyar = new List<string>();
-        List<string> lakohely_angol = new List<string>();
+        List<string> lakohely_nemet = new List<string>();
         List<string> lakohely_magyar = new List<string>();
         int pontszamABC;
         int pontszamPAROSITAS;
         int pontszamAKASZTOFA;
         int pontszamSZOKERESO;
+        string abc_rendezett_betuk;
+        string szokereso;
         int sorszam;
         string szo;
         string magyarszo;
         int index = 0;
-        string szokereso;
         Random szam = new Random();
-        string abc_rendezett_betuk;
-        string username = "";
-        public void Beolvas(string felhasznalonev)
+        public void Beolvas()
         {
-            string[] adatok = File.ReadAllLines("angol.txt");
-            username = felhasznalonev;
+            string[] adatok = File.ReadAllLines("nemet.txt");
             for (int i = 0; i < adatok.Length; i++)
             {
                 string[] sor = adatok[i].Split(';');
                 if (sor[2] == "család")
                 {
-                    csalad_angol.Add(sor[0]);
+                    csalad_nemet.Add(sor[0]);
                     csalad_magyar.Add(sor[1]);
                 }
                 if (sor[2] == "informatika")
                 {
-                    info_angol.Add(sor[0]);
+                    info_nemet.Add(sor[0]);
                     info_magyar.Add(sor[1]);
                 }
                 if (sor[2] == "utazás")
                 {
-                    utazas_angol.Add(sor[0]);
+                    utazas_nemet.Add(sor[0]);
                     utazas_magyar.Add(sor[1]);
                 }
                 if (sor[2] == "időjárás")
                 {
-                    idojaras_angol.Add(sor[0]);
+                    idojaras_nemet.Add(sor[0]);
                     idojaras_magyar.Add(sor[1]);
                 }
                 if (sor[2] == "lakóhely")
                 {
-                    lakohely_angol.Add(sor[0]);
+                    lakohely_nemet.Add(sor[0]);
                     lakohely_magyar.Add(sor[1]);
                 }
             }
@@ -85,8 +82,7 @@ namespace IKT
                 Console.WriteLine("3.  Utazás       (Közepes)");
                 Console.WriteLine("4.  Időjárás     (Közepes)");
                 Console.WriteLine("5.  Lakóhely     (Nehéz)");
-                //Console.WriteLine("6.  Vegyes       (Nehéz) (jelentése: Akármelyik témából vegyesen válogat szavakat");
-                Console.WriteLine("7.  Kilépés      ");
+                Console.WriteLine("6.  Kilépés      ");
                 Console.WriteLine("--------------------");
                 Console.Write(" -- Téma sorszáma: ");
                 sorszam = Convert.ToInt16(Console.ReadLine());
@@ -94,10 +90,10 @@ namespace IKT
                 {
                     case 1:
                         Console.WriteLine("Válassza ki a megfelelő választ az 'a/b/c' lehetőségek közül a CSALÁD témához kapcsolódva!");
-                        for (int i = 5; i < csalad_angol.Count; i++)
+                        for (int i = 5; i < csalad_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = csalad_angol[index];
+                            szo = csalad_nemet[index];
 
                             int helyesValaszIndex = szam.Next(3);
                             string helyesValasz = "";
@@ -119,7 +115,7 @@ namespace IKT
                             masikMagyarok.Remove(masikMagyar1);
                             string masikMagyar2 = masikMagyarok[szam.Next(masikMagyarok.Count)];
 
-                            Console.Write("Az angol szó: " + szo);
+                            Console.Write("A német szó: " + szo);
                             Console.WriteLine();
 
                             if (helyesValasz == "a")
@@ -152,10 +148,10 @@ namespace IKT
                         break;
                     case 2:
                         Console.WriteLine("Válassza ki a megfelelő választ az 'a/b/c' lehetőségek közül az INFORMATIKA témához kapcsolódva!");
-                        for (int i = 5; i < info_angol.Count; i++)
+                        for (int i = 5; i < info_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = info_angol[index];
+                            szo = info_nemet[index];
 
                             int helyesValaszIndex = szam.Next(3);
                             string helyesValasz = "";
@@ -177,7 +173,7 @@ namespace IKT
                             masikMagyarok.Remove(masikMagyar1);
                             string masikMagyar2 = masikMagyarok[szam.Next(masikMagyarok.Count)];
 
-                            Console.Write("Az angol szó: " + szo);
+                            Console.Write("A német szó: " + szo);
                             Console.WriteLine();
 
                             if (helyesValasz == "a")
@@ -211,10 +207,10 @@ namespace IKT
                         break;
                     case 3:
                         Console.WriteLine("Válassza ki a megfelelő választ az 'a/b/c' lehetőségek közül az UTAZÁS témához kapcsolódva!");
-                        for (int i = 5; i < utazas_angol.Count; i++)
+                        for (int i = 5; i < utazas_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = utazas_angol[index];
+                            szo = utazas_nemet[index];
 
                             int helyesValaszIndex = szam.Next(3);
                             string helyesValasz = "";
@@ -236,7 +232,7 @@ namespace IKT
                             masikMagyarok.Remove(masikMagyar1);
                             string masikMagyar2 = masikMagyarok[szam.Next(masikMagyarok.Count)];
 
-                            Console.Write("Az angol szó: " + szo);
+                            Console.Write("A német szó: " + szo);
                             Console.WriteLine();
 
                             if (helyesValasz == "a")
@@ -270,10 +266,10 @@ namespace IKT
                         break;
                     case 4:
                         Console.WriteLine("Válassza ki a megfelelő választ az 'a/b/c' lehetőségek közül az IDŐJÁRÁS témához kapcsolódva!");
-                        for (int i = 5; i < idojaras_angol.Count; i++)
+                        for (int i = 5; i < idojaras_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = idojaras_angol[index];
+                            szo = idojaras_nemet[index];
 
                             int helyesValaszIndex = szam.Next(3);
                             string helyesValasz = "";
@@ -295,7 +291,7 @@ namespace IKT
                             masikMagyarok.Remove(masikMagyar1);
                             string masikMagyar2 = masikMagyarok[szam.Next(masikMagyarok.Count)];
 
-                            Console.Write("Az angol szó: " + szo);
+                            Console.Write("A német szó: " + szo);
                             Console.WriteLine();
 
                             if (helyesValasz == "a")
@@ -329,10 +325,10 @@ namespace IKT
                         break;
                     case 5:
                         Console.WriteLine("Válassza ki a megfelelő választ az 'a/b/c' lehetőségek közül a LAKÓHELY témához kapcsolódva!");
-                        for (int i = 5; i < lakohely_angol.Count; i++)
+                        for (int i = 5; i < lakohely_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = lakohely_angol[index];
+                            szo = lakohely_nemet[index];
 
                             int helyesValaszIndex = szam.Next(3);
                             string helyesValasz = "";
@@ -354,7 +350,7 @@ namespace IKT
                             masikMagyarok.Remove(masikMagyar1);
                             string masikMagyar2 = masikMagyarok[szam.Next(masikMagyarok.Count)];
 
-                            Console.Write("Az angol szó: " + szo);
+                            Console.Write("A német szó: " + szo);
                             Console.WriteLine();
 
                             if (helyesValasz == "a")
@@ -388,7 +384,7 @@ namespace IKT
                         break;
                 }
             }
-            while (sorszam != 7);
+            while (sorszam != 6);
             {
                 Console.WriteLine("Köszönjük, hogy velünk tanultál!");
             }
@@ -414,10 +410,10 @@ namespace IKT
                 {
                     case 1:
                         Console.WriteLine("Adja meg az angol szó magyar megfelelőjét a CSALÁD témához kapcsolódva!");
-                        for (int i = 5; i < csalad_angol.Count; i++)
+                        for (int i = 5; i < csalad_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = csalad_angol[index];
+                            szo = csalad_nemet[index];
                             Console.Write(szo + " -- ");
                             magyarszo = Console.ReadLine();
                             if (magyarszo == csalad_magyar[index])
@@ -432,10 +428,10 @@ namespace IKT
 
                     case 2:
                         Console.WriteLine("Adja meg az angol szó magyar megfelelőjét az INFORMATIKA témához kapcsolódva!");
-                        for (int i = 5; i < info_angol.Count; i++)
+                        for (int i = 5; i < info_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = info_angol[index];
+                            szo = info_nemet[index];
                             Console.Write(szo + " -- ");
                             magyarszo = Console.ReadLine();
                             if (magyarszo == info_magyar[index])
@@ -450,10 +446,10 @@ namespace IKT
 
                     case 3:
                         Console.WriteLine("Adja meg az angol szó magyar megfelelőjét az UTAZÁS témához kapcsolódva!");
-                        for (int i = 5; i < utazas_angol.Count; i++)
+                        for (int i = 5; i < utazas_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = utazas_angol[index];
+                            szo = utazas_nemet[index];
                             Console.Write(szo + " -- ");
                             magyarszo = Console.ReadLine();
                             if (magyarszo == utazas_magyar[index])
@@ -468,10 +464,10 @@ namespace IKT
 
                     case 4:
                         Console.WriteLine("Adja meg az angol szó magyar megfelelőjét az IDŐJÁRÁS témához kapcsolódva!");
-                        for (int i = 5; i < idojaras_angol.Count; i++)
+                        for (int i = 5; i < idojaras_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = idojaras_angol[index];
+                            szo = idojaras_nemet[index];
                             Console.Write(szo + " -- ");
                             magyarszo = Console.ReadLine();
                             if (magyarszo == idojaras_magyar[index])
@@ -486,10 +482,10 @@ namespace IKT
 
                     case 5:
                         Console.WriteLine("Adja meg az angol szó magyar megfelelőjét a LAKÓHELY témához kapcsolódva!");
-                        for (int i = 5; i < lakohely_angol.Count; i++)
+                        for (int i = 5; i < lakohely_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = lakohely_angol[index];
+                            szo = lakohely_nemet[index];
                             Console.Write(szo + " -- ");
                             magyarszo = Console.ReadLine();
                             if (magyarszo == lakohely_magyar[index])
@@ -528,13 +524,13 @@ namespace IKT
         public void Akasztofa()
         {
             Random r = new Random();
-            int random = r.Next(1, csalad_angol.Count - 1);
-            string keresettszo = csalad_angol[random];
+            int random = r.Next(1, csalad_nemet.Count - 1);
+            string keresettszo = csalad_nemet[random];
             int keresettszohossz = keresettszo.Length;
             var karakterek = new Regex("^[a-z]$");
             int elet = keresettszohossz + 5;
             var betuk = new List<string>();
-            //string[] megoldas = new string[keresettszohossz];
+
             while (elet != 0)
             {
                 var maradek = 0;
@@ -613,11 +609,11 @@ namespace IKT
                 switch (sorszam)
                 {
                     case 1:
-                        Console.WriteLine("Állítsa sorrendbe a betűket és gépelje be helyesen Angol(család) témához kapcsolódóan!");
-                        for (int i = 5; i < csalad_angol.Count; i++)
+                        Console.WriteLine("Állítsd sorrendbe a betűket és gépeld be helyesen Német(család) témához kapcsolódóan!");
+                        for (int i = 5; i < csalad_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = csalad_angol[index];
+                            szo = csalad_nemet[index];
                             char[] betuk = szo.ToCharArray();
                             Array.Sort(betuk);
                             abc_rendezett_betuk = new string(betuk);
@@ -641,11 +637,11 @@ namespace IKT
                         Console.WriteLine();
                         break;
                     case 2:
-                        Console.WriteLine("Állítsa sorrendbe a betűket és gépelje be helyesen Angol(informatika) témához kapcsolódóan!");
-                        for (int i = 5; i < info_angol.Count; i++)
+                        Console.WriteLine("Állítsd sorrendbe a betűket és gépeld be helyesen Német(informatika) témához kapcsolódóan!");
+                        for (int i = 5; i < info_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = info_angol[index];
+                            szo = info_nemet[index];
                             char[] betuk = szo.ToCharArray();
                             Array.Sort(betuk);
                             abc_rendezett_betuk = new string(betuk);
@@ -669,11 +665,11 @@ namespace IKT
                         Console.WriteLine();
                         break;
                     case 3:
-                        Console.WriteLine("Állítsa sorrendbe a betűket és gépelje be helyesen Angol(utazás) témához kapcsolódóan!");
-                        for (int i = 5; i < utazas_angol.Count; i++)
+                        Console.WriteLine("Állítsd sorrendbe a betűket és gépeld be helyesen Német(utazás) témához kapcsolódóan!");
+                        for (int i = 5; i < utazas_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = utazas_angol[index];
+                            szo = utazas_nemet[index];
                             char[] betuk = szo.ToCharArray();
                             Array.Sort(betuk);
                             abc_rendezett_betuk = new string(betuk);
@@ -697,11 +693,11 @@ namespace IKT
                         Console.WriteLine();
                         break;
                     case 4:
-                        Console.WriteLine("Állítsa sorrendbe a betűket és gépelje be helyesen Angol(időjárás) témához kapcsolódóan!");
-                        for (int i = 5; i < idojaras_angol.Count; i++)
+                        Console.WriteLine("Állítsd sorrendbe a betűket és gépeld be helyesen Német(időjárás) témához kapcsolódóan!");
+                        for (int i = 5; i < idojaras_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = idojaras_angol[index];
+                            szo = idojaras_nemet[index];
                             char[] betuk = szo.ToCharArray();
                             Array.Sort(betuk);
                             abc_rendezett_betuk = new string(betuk);
@@ -725,11 +721,11 @@ namespace IKT
                         Console.WriteLine();
                         break;
                     case 5:
-                        Console.WriteLine("Állítsa sorrendbe a betűket és gépelja be helyesen Angol(lakóhely) témához kapcsolódóan!");
-                        for (int i = 5; i < lakohely_angol.Count; i++)
+                        Console.WriteLine("Állítsd sorrendbe a betűket és gépeld be helyesen Német(lakóhely) témához kapcsolódóan!");
+                        for (int i = 5; i < lakohely_nemet.Count; i++)
                         {
                             index = szam.Next(10);
-                            szo = lakohely_angol[index];
+                            szo = lakohely_nemet[index];
                             char[] betuk = szo.ToCharArray();
                             Array.Sort(betuk);
                             abc_rendezett_betuk = new string(betuk);
@@ -756,7 +752,7 @@ namespace IKT
             }
             while (sorszam != 7);
             {
-                Console.WriteLine("Köszönjük " + username + " hogy a Lingarixel tanultál!");
+                Console.WriteLine("Köszönjük, hogy velünk tanultál!");
             }
 
 
@@ -764,9 +760,7 @@ namespace IKT
         public void Pontok()
         {
             int pontok = pontszamABC + pontszamAKASZTOFA + pontszamPAROSITAS;
-            Console.WriteLine($"" + username + " összesen {pontok} pontot gyűjtött! Gratulálunk :)");
+            Console.WriteLine($" A gyakorlásoddal összesen {pontok} pontot gyűjtöttél! Gratulálunk :)");
         }
-
-
     }
 }
