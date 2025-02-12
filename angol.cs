@@ -7,7 +7,7 @@ using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace Vizsgaremek2025
+namespace IKT
 {
     internal class angol
     {
@@ -74,8 +74,28 @@ namespace Vizsgaremek2025
             int sorszam;
             string szo;
             string magyarszo;
-            int index = 0;
-            Random szam = new Random();
+            Random random = new Random();
+            int[] index = new int[5];
+            int count = 0;
+            while (count < 5)
+            {
+                int number = random.Next(1, 11);
+                bool exists = false;
+
+                for (int i = 0; i < count; i++)
+                {
+                    if (index[i] == number)
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+                if (!exists)
+                {
+                    index[count] = number;
+                    count++;
+                }
+            }
             do
             {
                 Console.WriteLine("  Témák:  ");
@@ -85,6 +105,7 @@ namespace Vizsgaremek2025
                 Console.WriteLine("3.  Utazás       (Közepes)");
                 Console.WriteLine("4.  Időjárás     (Közepes)");
                 Console.WriteLine("5.  Lakóhely     (Nehéz)");
+                //Console.WriteLine("6.  Vegyes       (Nehéz) (jelentése: Akármelyik témából vegyesen válogat szavakat");
                 Console.WriteLine("7.  Kilépés      ");
                 Console.WriteLine("--------------------");
                 Console.Write(" -- Téma sorszáma: ");
@@ -95,10 +116,10 @@ namespace Vizsgaremek2025
                         Console.WriteLine("Válassza ki a megfelelő választ az 'a/b/c' lehetőségek közül a CSALÁD témához kapcsolódva!");
                         for (int i = 5; i < csalad_angol.Count; i++)
                         {
-                            index = szam.Next(10);
-                            szo = csalad_angol[index];
 
-                            int helyesValaszIndex = szam.Next(3);
+                            szo = csalad_angol[index[i]];
+
+                            int helyesValaszIndex = index[i];
                             string helyesValasz = "";
                             if (helyesValaszIndex == 0)
                             {
@@ -123,21 +144,21 @@ namespace Vizsgaremek2025
 
                             if (helyesValasz == "a")
                             {
-                                Console.WriteLine("a) " + csalad_magyar[index]);
+                                Console.WriteLine("a) " + csalad_magyar[index[i]]);
                                 Console.WriteLine("b) " + masikMagyar1);
                                 Console.WriteLine("c) " + masikMagyar2);
                             }
                             else if (helyesValasz == "b")
                             {
                                 Console.WriteLine("a) " + masikMagyar1);
-                                Console.WriteLine("b) " + csalad_magyar[index]);
+                                Console.WriteLine("b) " + csalad_magyar[index[i]]);
                                 Console.WriteLine("c) " + masikMagyar2);
                             }
                             else
                             {
                                 Console.WriteLine("a) " + masikMagyar1);
                                 Console.WriteLine("b) " + masikMagyar2);
-                                Console.WriteLine("c) " + csalad_magyar[index]);
+                                Console.WriteLine("c) " + csalad_magyar[index[i]]);
                             }
                             magyarszo = Console.ReadLine();
                             if (magyarszo == helyesValasz)
@@ -153,8 +174,7 @@ namespace Vizsgaremek2025
                         Console.WriteLine("Válassza ki a megfelelő választ az 'a/b/c' lehetőségek közül az INFORMATIKA témához kapcsolódva!");
                         for (int i = 5; i < info_angol.Count; i++)
                         {
-                            index = szam.Next(10);
-                            szo = info_angol[index];
+                            szo = info_angol[index[i]];
 
                             int helyesValaszIndex = szam.Next(3);
                             string helyesValasz = "";
@@ -181,21 +201,21 @@ namespace Vizsgaremek2025
 
                             if (helyesValasz == "a")
                             {
-                                Console.WriteLine("a) " + info_magyar[index]);
+                                Console.WriteLine("a) " + info_magyar[index[i]]);
                                 Console.WriteLine("b) " + masikMagyar1);
                                 Console.WriteLine("c) " + masikMagyar2);
                             }
                             else if (helyesValasz == "b")
                             {
                                 Console.WriteLine("a) " + masikMagyar1);
-                                Console.WriteLine("b) " + info_magyar[index]);
+                                Console.WriteLine("b) " + info_magyar[index[i]]);
                                 Console.WriteLine("c) " + masikMagyar2);
                             }
                             else
                             {
                                 Console.WriteLine("a) " + masikMagyar1);
                                 Console.WriteLine("b) " + masikMagyar2);
-                                Console.WriteLine("c) " + info_magyar[index]);
+                                Console.WriteLine("c) " + info_magyar[index[i]]);
                             }
 
                             magyarszo = Console.ReadLine();
@@ -212,8 +232,7 @@ namespace Vizsgaremek2025
                         Console.WriteLine("Válassza ki a megfelelő választ az 'a/b/c' lehetőségek közül az UTAZÁS témához kapcsolódva!");
                         for (int i = 5; i < utazas_angol.Count; i++)
                         {
-                            index = szam.Next(10);
-                            szo = utazas_angol[index];
+                            szo = utazas_angol[index[i]];
 
                             int helyesValaszIndex = szam.Next(3);
                             string helyesValasz = "";
@@ -240,21 +259,21 @@ namespace Vizsgaremek2025
 
                             if (helyesValasz == "a")
                             {
-                                Console.WriteLine("a) " + utazas_magyar[index]);
+                                Console.WriteLine("a) " + utazas_magyar[index[i]]);
                                 Console.WriteLine("b) " + masikMagyar1);
                                 Console.WriteLine("c) " + masikMagyar2);
                             }
                             else if (helyesValasz == "b")
                             {
                                 Console.WriteLine("a) " + masikMagyar1);
-                                Console.WriteLine("b) " + utazas_magyar[index]);
+                                Console.WriteLine("b) " + utazas_magyar[index[i]]);
                                 Console.WriteLine("c) " + masikMagyar2);
                             }
                             else
                             {
                                 Console.WriteLine("a) " + masikMagyar1);
                                 Console.WriteLine("b) " + masikMagyar2);
-                                Console.WriteLine("c) " + utazas_magyar[index]);
+                                Console.WriteLine("c) " + utazas_magyar[index[i]]);
                             }
 
                             magyarszo = Console.ReadLine();
@@ -271,8 +290,7 @@ namespace Vizsgaremek2025
                         Console.WriteLine("Válassza ki a megfelelő választ az 'a/b/c' lehetőségek közül az IDŐJÁRÁS témához kapcsolódva!");
                         for (int i = 5; i < idojaras_angol.Count; i++)
                         {
-                            index = szam.Next(10);
-                            szo = idojaras_angol[index];
+                            szo = idojaras_angol[index[i]];
 
                             int helyesValaszIndex = szam.Next(3);
                             string helyesValasz = "";
@@ -299,21 +317,21 @@ namespace Vizsgaremek2025
 
                             if (helyesValasz == "a")
                             {
-                                Console.WriteLine("a) " + idojaras_magyar[index]);
+                                Console.WriteLine("a) " + idojaras_magyar[index[i]]);
                                 Console.WriteLine("b) " + masikMagyar1);
                                 Console.WriteLine("c) " + masikMagyar2);
                             }
                             else if (helyesValasz == "b")
                             {
                                 Console.WriteLine("a) " + masikMagyar1);
-                                Console.WriteLine("b) " + idojaras_magyar[index]);
+                                Console.WriteLine("b) " + idojaras_magyar[index[i]]);
                                 Console.WriteLine("c) " + masikMagyar2);
                             }
                             else
                             {
                                 Console.WriteLine("a) " + masikMagyar1);
                                 Console.WriteLine("b) " + masikMagyar2);
-                                Console.WriteLine("c) " + idojaras_magyar[index]);
+                                Console.WriteLine("c) " + idojaras_magyar[index[i]]);
                             }
 
                             magyarszo = Console.ReadLine();
@@ -330,8 +348,7 @@ namespace Vizsgaremek2025
                         Console.WriteLine("Válassza ki a megfelelő választ az 'a/b/c' lehetőségek közül a LAKÓHELY témához kapcsolódva!");
                         for (int i = 5; i < lakohely_angol.Count; i++)
                         {
-                            index = szam.Next(10);
-                            szo = lakohely_angol[index];
+                            szo = lakohely_angol[index[i]];
 
                             int helyesValaszIndex = szam.Next(3);
                             string helyesValasz = "";
@@ -358,21 +375,21 @@ namespace Vizsgaremek2025
 
                             if (helyesValasz == "a")
                             {
-                                Console.WriteLine("a) " + lakohely_magyar[index]);
+                                Console.WriteLine("a) " + lakohely_magyar[index[i]]);
                                 Console.WriteLine("b) " + masikMagyar1);
                                 Console.WriteLine("c) " + masikMagyar2);
                             }
                             else if (helyesValasz == "b")
                             {
                                 Console.WriteLine("a) " + masikMagyar1);
-                                Console.WriteLine("b) " + lakohely_magyar[index]);
+                                Console.WriteLine("b) " + lakohely_magyar[index[i]]);
                                 Console.WriteLine("c) " + masikMagyar2);
                             }
                             else
                             {
                                 Console.WriteLine("a) " + masikMagyar1);
                                 Console.WriteLine("b) " + masikMagyar2);
-                                Console.WriteLine("c) " + lakohely_magyar[index]);
+                                Console.WriteLine("c) " + lakohely_magyar[index[i]]);
                             }
 
                             magyarszo = Console.ReadLine();
@@ -500,6 +517,22 @@ namespace Vizsgaremek2025
                         Console.WriteLine("Eddigi pontok: " + pontszamPAROSITAS + " pont");
                         Console.WriteLine();
                         break;
+
+                        /*case 6:
+                            Console.WriteLine("Adja meg az angol szó magyar megfelelőjét!");
+                            for (int i = 5; i < csalad_angol.Count; i++)
+                            {
+                                index = szam.Next(10);
+                                szo = csalad_angol[index];
+                                Console.Write(szo + " -- ");
+                                magyarszo = Console.ReadLine();
+                                if (magyarszo == csalad_magyar[index])
+                                {
+                                    pontszamPAROSITAS += 1;
+                                }
+                            }
+                            Console.WriteLine("Eddigi pontok: " + pontszamPAROSITAS + " pont");
+                            break;*/
                 }
             }
             while (sorszam != 7);
@@ -517,6 +550,7 @@ namespace Vizsgaremek2025
             var karakterek = new Regex("^[a-z]$");
             int elet = keresettszohossz + 5;
             var betuk = new List<string>();
+            //string[] megoldas = new string[keresettszohossz];
             while (elet != 0)
             {
                 var maradek = 0;
@@ -746,9 +780,7 @@ namespace Vizsgaremek2025
         public void Pontok()
         {
             int pontok = pontszamABC + pontszamAKASZTOFA + pontszamPAROSITAS;
-            Console.WriteLine($"" + username + " összesen "+pontok+" pontot gyűjtött! Gratulálunk :)");
+            Console.WriteLine($"" + username + " összesen " + pontok + " pontot gyűjtött! Gratulálunk :)");
         }
-
-
     }
 }
