@@ -753,7 +753,7 @@ namespace Vizsgaremek2025
             }
             while (sorszam != 7);
             {
-                Console.WriteLine("Köszönjük, hogy velünk tanultál!");
+                Console.WriteLine("Köszönjük " + username + " hogy a Lingarixel tanultál!");
             }
 
 

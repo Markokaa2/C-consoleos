@@ -500,22 +500,6 @@ namespace Vizsgaremek2025
                         Console.WriteLine("Eddigi pontok: " + pontszamPAROSITAS + " pont");
                         Console.WriteLine();
                         break;
-
-                        /*case 6:
-                            Console.WriteLine("Adja meg az angol szó magyar megfelelőjét!");
-                            for (int i = 5; i < csalad_angol.Count; i++)
-                            {
-                                index = szam.Next(10);
-                                szo = csalad_angol[index];
-                                Console.Write(szo + " -- ");
-                                magyarszo = Console.ReadLine();
-                                if (magyarszo == csalad_magyar[index])
-                                {
-                                    pontszamPAROSITAS += 1;
-                                }
-                            }
-                            Console.WriteLine("Eddigi pontok: " + pontszamPAROSITAS + " pont");
-                            break;*/
                 }
             }
             while (sorszam != 7);
@@ -533,7 +517,6 @@ namespace Vizsgaremek2025
             var karakterek = new Regex("^[a-z]$");
             int elet = keresettszohossz + 5;
             var betuk = new List<string>();
-            //string[] megoldas = new string[keresettszohossz];
             while (elet != 0)
             {
                 var maradek = 0;
